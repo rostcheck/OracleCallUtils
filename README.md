@@ -15,9 +15,12 @@ Given a .NET class Employee with appropriate properties, you can do:
                 return call.Execute<Employee>();
             }
 
-### More info ###
+Easy, no? OracleCall will automatically transform the recordset into a list of filled-out Employee objects. Here it inferred the property names from the recordset field names; if they are not clear, you can manually bind those that need to be mapped.
 
-* Download the solution and see the Examples project for examples of use
+### More info ###
+* OracleCall is designed defensively to protect you from subtle issues with the Oracle interface libraries. If your bindings are wrong, missing, or duplicated via cut-and-paste error, or if you 
+put a parameter in a position Oracle will not accept, OracleCall with throw a helpful exception to explain the issue to you.
+* Download the solution and see the Examples project for examples of use.
 * This is version 1.0.
 
 ### How do I get set up? ###
