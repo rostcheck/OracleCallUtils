@@ -1,0 +1,9 @@
+﻿How to use the OracleCallUtility library?
+
+- Build the solution.
+- Either make an empty solution in your project and add the OracleCallUtils.dll, or
+  copy the OracleCallUtils project dir to your solution and do "Solution", "Add", "Existing
+  Project" to add it.
+- From your project, add a reference to the OracleCallUtility project from above.
+- In your project, add the NuGet package "ODP.NET". Make sure to get the managed version.
+- Review the examples to see how OracleCall is used.

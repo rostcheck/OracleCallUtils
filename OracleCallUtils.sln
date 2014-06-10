@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Examples\Examples.csproj", "{9EEBCAF2-ADF7-4DEA-B99F-C39017A0FAD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleCallUtils", "OracleCallUtils\OracleCallUtils.csproj", "{E6360427-A466-4DE3-9FA7-17B976076C25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleCallUtilsTests", "OracleCallUtilsTests\OracleCallUtilsTests.csproj", "{66A1DDE2-C305-4260-A6BE-E6AC205FEE81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EEBCAF2-ADF7-4DEA-B99F-C39017A0FAD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EEBCAF2-ADF7-4DEA-B99F-C39017A0FAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EEBCAF2-ADF7-4DEA-B99F-C39017A0FAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EEBCAF2-ADF7-4DEA-B99F-C39017A0FAD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6360427-A466-4DE3-9FA7-17B976076C25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6360427-A466-4DE3-9FA7-17B976076C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6360427-A466-4DE3-9FA7-17B976076C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6360427-A466-4DE3-9FA7-17B976076C25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A1DDE2-C305-4260-A6BE-E6AC205FEE81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A1DDE2-C305-4260-A6BE-E6AC205FEE81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A1DDE2-C305-4260-A6BE-E6AC205FEE81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A1DDE2-C305-4260-A6BE-E6AC205FEE81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
