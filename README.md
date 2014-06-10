@@ -25,10 +25,10 @@ put a parameter in a position Oracle will not accept, OracleCall with throw a he
 
 ### How do I get set up? ###
 
-* To use OracleCall in your project:
-* Add a reference to the OracleCallUtils.dll
-* Install ODP.NET (make sure to get the managed version) via NuGet
-* Refer to the examples in the solution for simple usage examples
+* Download and build the solution
+* Refer to the Examples project to see usage examples
+* In your project: Add a reference to the OracleCallUtils.dll
+* In your project: Install ODP.NET (make sure to get the managed version) via NuGet
 * For more info, see howto.txt in the Example project
 * Unit tests can be run directly from Visual Studio
 
