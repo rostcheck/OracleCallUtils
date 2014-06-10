@@ -3,7 +3,19 @@
 OracleCall allows you to quickly, easily, and safely call Oracle stored procedures, functions, and 
 queries from .NET.
 
-### What is this repository for? ###
+### Quick example ###
+
+Given a .NET class Employee with appropriate properties, you can do:
+
+           using (OracleCall call = new OracleCall(OracleCallType.Procedure, "P_EMP_RS"))
+            {
+                call.Connect(OracleCall.FormConnectionString(userName, password, dataSource));
+                call.AddParameter("P_DEPARTMENT_ID", OracleDbType.Decimal, ParameterDirection.Input, 50M);
+                call.AddParameter("P_RECORDSET", OracleDbType.RefCursor, ParameterDirection.Output);
+                return call.Execute<Employee>();
+            }
+
+### More info ###
 
 * Download the solution and see the Examples project for examples of use
 * This is version 1.0.
