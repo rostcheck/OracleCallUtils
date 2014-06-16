@@ -210,7 +210,8 @@ namespace OracleCallUtils
                         try
                         {
                             PropertyInfo propertyInfo = thisType.GetProperty(binding.PropertyName);
-                            propertyInfo.SetValue(thisResult, Convert.ChangeType(dataReader[columnNumber], propertyInfo.PropertyType));
+                            Object value = Convert.ChangeType(dataReader[columnNumber], Nullable.GetUnderlyingType(propertyInfo.PropertyType) ?? propertyInfo.PropertyType);
+                            propertyInfo.SetValue(thisResult, value, null);
                         }
                         catch (NullReferenceException)
                         {

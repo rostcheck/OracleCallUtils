@@ -8,7 +8,6 @@ using OracleCallUtils;
 
 namespace OracleCallUtilsTests
 {
-
     public class Employee
     {
         public string FirstName { get; set; }
@@ -16,6 +15,12 @@ namespace OracleCallUtilsTests
         public int EmployeeID { get; set; }
         public uint DepartmentID { get; set; }
         public DateTime HireDate { get; set; }
+    }
+
+    public class EmployeeCommission
+    {
+        public int EmployeeID { get; set; }
+        public double? CommissionPct { get; set; }
     }
 
     [TestClass]
@@ -46,6 +51,19 @@ namespace OracleCallUtilsTests
             }
         }
 
+        [TestMethod]
+        public void TestBindingToNullableTypes()
+        {
+            string query = "select employee_id, commission_pct from employees";
+            using (OracleCall call = new OracleCall(OracleCallType.Query, query))
+            {
+                call.Connect(OracleCall.FormConnectionString(userName, password, dataSource));
+                List<EmployeeCommission> results = call.Execute<EmployeeCommission>();
+                Assert.IsTrue(results.Count > 1);
+                Assert.IsTrue(results.Where(s => s.CommissionPct > 0.0).Count() > 0);
+            }
+        }
+        
         [TestMethod]
         [ExpectedExceptionAttribute(typeof(OracleCallException), "Must specify value for input or input/output OracleCall parameters")]
         public void TestQueryWithParamsNotSpecified()
