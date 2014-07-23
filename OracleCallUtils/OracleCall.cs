@@ -43,6 +43,8 @@ namespace OracleCallUtils
         private const string csNotFunction = "OracleCall must be created with call type Function to call ExecuteFunction";
         private const string csImproperFunctionCall = "Functions must be called with ExecuteFunction";
         private const string csPassAsDateTime = "Dates and time parameters must be passed as DateTime";
+        private const string csParameterNotFound = "Parameter name {0} is not found (call AddParameter first)";
+        private const string csParameterNotOutput = "Parameter {0} is not an output or inout parameter, cannot get its value";
 
         /// <summary>
         /// If true (default), calling Execute<typeparamref name="T"/> will find properties on T
@@ -102,6 +104,25 @@ namespace OracleCallUtils
                 parameter.Size = size;
             parameter.Direction = direction;
             command.Parameters.Add(parameter); 
+        }
+
+        /// <summary>
+        /// Get the return value of a parameter (after calling Execute(); must be an OUT or INOUT parameter)
+        /// </summary>
+        /// <typeparam name="T">Return type</typeparam>
+        /// <param name="parameterName">Parameter name</param>
+        /// <returns>The parameter's value as a T</returns>
+        public T GetParameterValue<T>(string parameterName)
+        {
+            if (!command.Parameters.Contains(parameterName))
+                throw new OracleCallException(string.Format(csParameterNotFound, parameterName));
+
+            if (command.Parameters[parameterName].Direction != ParameterDirection.Output && 
+                command.Parameters[parameterName].Direction != ParameterDirection.InputOutput)
+            {
+                throw new OracleCallException(string.Format(csParameterNotOutput, parameterName));
+            }
+            return (T)Convert.ChangeType(command.Parameters[parameterName].Value.ToString(), typeof(T));
         }
 
         public void AddReturnValue(OracleDbType type, int size = 0)
